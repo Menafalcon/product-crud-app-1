@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(247, 247, 247);
+    overflow-x: hidden;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+#Content-wrapper {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#Upper-Div{
+    margin-bottom: 5px;
+    margin-top: 2px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    background-color:rgba(240, 248, 255, 0.950);
+    color: rgb(39, 37, 37);
+    text-align: center;
+    font-weight: 500;
+    font-size: 34px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.3s;
+    border: 1px solid rgba(95, 95, 95, 0.747);
+}
+#Upper-Div:hover{
+    background-color: rgba(102, 107, 155, 0.651);
+    color: lavenderblush;
+    border: 1px solid rgba(116, 115, 115, 0.548);
+}
+
+#Pause{
+    margin-left : 5px;
+    background-color: rgb(226, 226, 226);
+    height: 25px;
+    width: 25px;
+    transition: 0.25s, transform 0.2s ease;
+    border-radius: 7px;
+}
+#Pause:hover{
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+#Translate{
+    margin: 2px;
+    background-color: rgb(226, 226, 226);
+    height: 25px;
+    width: 35px;
+    transition: 0.25s, transform 0.2s ease;
+    border-radius: 7px;
+}
+#Translate:hover{
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    transform: scale(1.2);
+}
+#HomePage{
+    background-color: rgb(224, 223, 223);
+    height: 25px;
+    transition: 0.25s, transform 0.2s ease;
+    border-radius: 7px;
+    font-weight: 700;
+}
+#HomePage:hover{
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+
+
+#Mid-Wrapper{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    padding: 20px;  
+}
+#Mid-Div{
+    min-width: 400px;
+    max-height: 800px;
+    height: auto;
+    width: 55%;
+    padding: 20px 35px; 
+
+    background-color:rgba(116, 116, 133, 0.26);
+    border: 2px solid rgb(110, 110, 110);
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgb(135, 162, 197);
+}
+#Mid-Wrapper p {
+    margin: 2px;
+    font-size: 20px;
+    font-weight: 800;
+    font-family:'Arial,Franklin Gothic Medium', 'Arial Narrow',  sans-serif
+}
+#footer {
+    background-color: rgba(173, 180, 199, 0.836);
+    color: rgb(54, 54, 54);
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid rgba(95, 95, 95, 0.747);
+}
+#footer p {
+    margin: 2px;
+    font-size: 18px;
+}
+#footer a {
+    color: rgb(38, 82, 122);
+    text-decoration: none;
+    margin: 0 15px;
+}
+#footer a:hover {
+    color: azure;
+    transition: color 150ms;
+}

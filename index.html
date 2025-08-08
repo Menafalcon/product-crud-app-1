@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>Invertory Manager</Title>
+    <link rel="icon" type="image/png" href="Images/Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+  <video id="videoBack" autoplay loop muted src="Videos/BackGround.mp4"></video>
+  <div id="header">  
+    <h2>Product CRUD Interface</h2>
+  </div>  
+      <div id="button-Wrapper">
+        <button id="Pausebtn" onclick="pauseFunction()">
+            <i class="fas fa-pause" id="pause-icon"></i>
+        </button>
+  <div id="mainWrapper">
+    <div id="mainBox">
+      <input id="prodId" type="number" placeholder="Product ID" /><br>
+      <input id="prodName" type="text" placeholder="Product Name" /><br>
+      <input id="prodQuantity" type="number" placeholder="Quantity" /><br>
+      <input id="prodPrice" type="number" placeholder="Price" step="0.1" /><br>
+      <button id="Addbtn" onclick="addProduct()">Add</button>
+      <button id="Updatebtn" onclick="updateProduct()">Update</button>
+      <button id="Delbtn" onclick="deleteProduct()">Delete</button><br>
+      <button id="Aboutbtn" onclick="window.location.href='about.html'">About Project</button>
+    </div>
+  </div>
+
+  <div id="middle">  
+    <h3>Product List</h3>
+    <button id="Refreshbtn" onclick="fetchProducts()">Refresh</button>
+  </div>  
+  
+  <table>
+    <thead >
+      <tr >
+        <th>ID</th><th>Name</th><th>Quantity</th><th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+  </table>
+
+
+<script>
+    const baseURL = "http://localhost:8080/products";
+    const video = document.getElementById("videoBack");
+    const icon = document.getElementById("pause-icon");
+    let isPaused = false
+
+    function pauseFunction(){
+      if(isPaused) {
+        video.play();
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+      } else {
+        video.pause();
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+      }
+      isPaused = !isPaused;
+    }
+
+    function fetchProducts() {
+      fetch(baseURL)
+        .then(res => res.json())
+        .then(data => {
+          const table = document.getElementById("productTable");
+          table.innerHTML = "";
+          data.forEach(p => {
+            table.innerHTML += `
+              <tr>
+                <td>${p.prodId}</td>
+                <td>${p.prodName}</td>
+                <td>${p.prodQuantity}</td>
+                <td>${p.prodPrice}</td>
+              </tr>
+            `;
+          });
+        });
+    }
+
+    function getInputs() {
+      return {
+        prodId: parseInt(document.getElementById("prodId").value),
+        prodName: document.getElementById("prodName").value,
+        prodQuantity: parseInt(document.getElementById("prodQuantity").value),
+        prodPrice: parseFloat(document.getElementById("prodPrice").value),
+      };
+    }
+
+    function addProduct() {
+      const prod = getInputs();
+      fetch(baseURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(prod)
+      }).then(fetchProducts);
+    }
+
+    function updateProduct() {
+      const prod = getInputs();
+      fetch(baseURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(prod)
+      }).then(fetchProducts);
+    }
+
+    function deleteProduct() {
+      const id = document.getElementById("prodId").value;
+      fetch(`${baseURL}/${id}`, {
+        method: "DELETE"
+      }).then(fetchProducts);
+    }
+
+    // Load products on page load
+    fetchProducts();
+  </script>
+</body>
+</html>
