@@ -23,6 +23,7 @@ MyStoreProject/
 │ ├── styles.css
 │ ├── about.html
 │ ├── about styles.css
+│ ├── main.js
 │ ├── Images/
 │ └── Videos/
 ├── BackEnd/
