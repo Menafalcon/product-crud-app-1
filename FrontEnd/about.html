@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="about styles.css">
     <link rel="icon" type="image/png" href="Images/Favicon.png">
+    <script src="main.js" defer></script>
     <title>About Project</title>
 </head>
 <body>
@@ -47,44 +48,5 @@
             <a href="#">Cantact Us</a>
         </div>
     </footer>
-
-
- <script>
-    const video = document.getElementById("myVideo");
-    const icon = document.getElementById("pause-icon");
-    const p1 = document.getElementById("p1");
-    const p2 = document.getElementById("p2");
-    const p3 = document.getElementById("p3");
-    let isTranslated = true;
-    let isPaused = false;
-
-    function translateFunction(){
-        if(isTranslated){
-            p1.innerText = "Ce système de gestion de liste d'achats CRUD pour les entreprises a été développé en seulement 4 heures, démontrant l'application rapide de compétences récemment acquises. En 20 jours, j'ai appris Java, Spring Boot et SQL depuis zéro, et ce projet en est une démonstration pratique.";
-            p2.innerText = "Malgré le court délai de développement, le projet reflète une compréhension claire du développement backend, de l'intégration de bases de données et des bases du frontend. Il met en évidence la capacité à transformer rapidement des connaissances fraîches en une application fonctionnelle.";
-            p3.innerText = "Poussé par une passion pour l'apprentissage et la maîtrise de nouvelles compétences en informatique de gestion, je me concentre sur la création de solutions full-stack fiables combinant logique backend efficace et interfaces conviviales.";
-        } else {
-            p1.innerText = "This CRUD buy-list management system for companies was developed in just 4 hours, showcasing rapid application of newly acquired skills. Over the course of 20 days, I learned Java, Spring Boot, and SQL from scratch, and this project is a practical demonstration of that fast-track learning.";
-            p2.innerText = "Despite the short build time, the project reflects a clear understanding of backend development, database integration, and frontend basics. It highlights the ability to quickly transform fresh knowledge into a working, functional application.";
-            p3.innerText = "Driven by a passion for learning and mastering new skills in business informatics, I focus on building reliable full-stack solutions that combine efficient backend logic with user-friendly interfaces.";
-        }
-        isTranslated = !isTranslated;
-    }
-
-    function pauseFunction(){
-        if(isPaused) {
-            video.play();
-            icon.classList.remove("fa-play");
-            icon.classList.add("fa-pause");
-        } else {
-            video.pause();
-            icon.classList.remove("fa-pause");
-            icon.classList.add("fa-play");
-
-        }
-        isPaused = !isPaused;
-    }
- </script>
-
 </body>
 </html>
